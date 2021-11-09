@@ -7,13 +7,13 @@ void func1(){
     ++b;
     receive >> a;
     print << b;
-    if (a){
+    if (a>0){
         a=1;
     }else{
         b=1;
         repeat (a){ a=b;}
     }
-    while(b){
+    while(b<100){
         ++b;
     }
     ret;

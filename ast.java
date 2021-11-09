@@ -973,7 +973,9 @@ abstract class UnaryExpNode extends ExpNode {
         myExp = exp;
     }
     //melo
-    public void nameAnalyzer(SymTable program){}
+    public void nameAnalyzer(SymTable program){
+        myExp.nameAnalyzer(program);
+    }
     //
     // one child
     protected ExpNode myExp;
@@ -985,7 +987,10 @@ abstract class BinaryExpNode extends ExpNode {
         myExp2 = exp2;
     }
     //melo
-    public void nameAnalyzer(SymTable program){}
+    public void nameAnalyzer(SymTable program){
+        myExp1.nameAnalyzer(program);
+        myExp2.nameAnalyzer(program);
+    }
     //
     // two kids
     protected ExpNode myExp1;
