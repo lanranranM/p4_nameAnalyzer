@@ -54,8 +54,14 @@ public class P4 {
             System.exit(-1);
         }
 
-	// ADD NAME ANALYSIS PART HERE
-        ((ASTnode)root.value).unparse(outFile, 0);
+	    // ADD NAME ANALYSIS PART HERE
+        // melo
+        ((ProgramNode)root.value).nameAnalyzer();
+        // melo
+        if(!ErrMsg.nameAnalyzerFail)
+            ((ASTnode)root.value).unparse(outFile, 0);
+        else
+            System.out.println("nameAnalyzerFail");
         outFile.close();
 
         return;
