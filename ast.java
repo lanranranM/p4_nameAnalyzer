@@ -865,6 +865,8 @@ class IdNode extends ExpNode {
 
     public void unparse(PrintWriter p, int indent) {
         p.print(myStrVal);
+        if (link!=null)
+            p.print("("+link.toString()+")");
     }
 
     // melo
@@ -877,8 +879,11 @@ class IdNode extends ExpNode {
     public String getID(){
         return myStrVal;
     }
+    public Sym getSym(){
+        return link;
+    }
     public void nameAnalyzer(SymTable program){
-        // link node, structNode?
+        // structNode?
         link = program.lookupGlobal(myStrVal);
         if(link == null){
             String msg = "Undeclared identifier";
