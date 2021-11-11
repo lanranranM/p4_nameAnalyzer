@@ -2,11 +2,34 @@ import java.util.*;
 
 public class SymTable {
     private List<HashMap<String, Sym>> list;
+    //melo
+    private HashMap<String, Sym> structDefinedList;
+    //
     
     public SymTable() {
         list = new LinkedList<HashMap<String, Sym>>();
         list.add(new HashMap<String, Sym>());
+        structDefinedList = new HashMap<String, Sym>();
     }
+    //melo
+    public HashMap<String, Sym> getStructDefinedList(){
+        return this.structDefinedList;
+    }
+    public void setStructDefinedList(HashMap<String, Sym> OldStructDefinedList){
+        this.structDefinedList = OldStructDefinedList;
+    }
+    public void addStruct(String name, Sym sym) throws DuplicateSymException{
+        if (structDefinedList.containsKey(name)||this.lookupGlobal(name)!=null){
+            throw new DuplicateSymException();
+        }
+        structDefinedList.put(name,sym);
+    }
+    public Sym lookupStruct(String name){
+        if (structDefinedList.isEmpty())
+            return null;
+        return structDefinedList.get(name);
+    }
+    //
     
     public void addDecl(String name, Sym sym) 
 	throws DuplicateSymException, EmptySymTableException, WrongArgumentException {
@@ -25,8 +48,10 @@ public class SymTable {
         }
 	
         HashMap<String, Sym> symTab = list.get(0);
-        if (symTab.containsKey(name))
+        if (symTab.containsKey(name)||structDefinedList.containsKey(name))
             throw new DuplicateSymException();
+        // if (symTab.containsKey(name))
+        //     throw new DuplicateSymException();
         
         symTab.put(name, sym);
     }
@@ -68,4 +93,11 @@ public class SymTable {
         }
         System.out.println();
     }
+    //melo
+    public void printStr() {
+        System.out.print("\n=== SymStr Table ===\n");
+        System.out.println(structDefinedList.toString());
+        System.out.println();
+    }
+    //
 }

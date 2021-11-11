@@ -53,10 +53,14 @@ WrongArgumentException.class: WrongArgumentException.java
 EmptySymTableException.class: EmptySymTableException.java
 	$(JC) $(FLAGS) -cp $(CP) EmptySymTableException.java
 
-##test
+##test java -cp $(CP) P4 nameErrors.b nameErrors.out
+###
+#	java -cp $(CP) P4 nameErrors.b nameErrors.out 2> nameErrors.err
+#	
+#	java -cp $(CP) P4 test.b test.out
+###
 test:
-	java -cp $(CP) P4 nameErrors.b nameErrors.out
-	java -cp $(CP) P4 test.b test.out
+	java -cp $(CP) P4 myTest.b myTest.out 2> myTest.err
 
 ###
 # clean
