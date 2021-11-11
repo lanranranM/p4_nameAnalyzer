@@ -1,6 +1,5 @@
 3:5 ***ERROR*** Multiply declared identifier
 4:6 ***ERROR*** Non-function declared void
-5:5 ***ERROR*** Multiply declared identifier
 8:9 ***ERROR*** Multiply declared identifier
 10:9 ***ERROR*** Multiply declared identifier
 12:5 ***ERROR*** Multiply declared identifier
@@ -23,4 +22,3 @@
 56:7 ***ERROR*** Undeclared identifier
 56:7 ***ERROR*** Dot-access of non-struct type
 59:6 ***ERROR*** Non-function declared void
-59:6 ***ERROR*** Multiply declared identifier

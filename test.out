@@ -1,0 +1,88 @@
+int a;
+int b;
+void func1() {
+    a(int) = 0;
+    a(int) = b(int);
+    ++a(int);
+    ++b(int);
+    receive >> a(int);
+    print << b(int);
+    if ((a(int) > 0)) {
+        a(int) = 1;
+    }
+    else {
+        b(int) = 1;
+        repeat (a(int)) {
+            a(int) = b(int);
+        }
+    }
+    while ((b(int) < 100)) {
+        ++b(int);
+    }
+    return;
+}
+
+int func2(int c, int d) {
+    ++c(int);
+    ++d(int);
+    return;
+}
+
+int func3(int func3) {
+    return;
+}
+
+int f(int a1, bool a2) {
+    int x;
+    int result;
+    result(int) = (x(int) + b(int));
+    ++a(int);
+    --b(int);
+    result(int) = (a(int) + b(int));
+    a1(int) = (b(int) == x(int));
+    result(int) = (a(int) * b(int));
+    result(int) = (a(int) / 5);
+    result(int) = (a2(bool) - b(int));
+    x(int) = a(int);
+    if (b(int)) {
+        return (x(int) + 1);
+    }
+    else {
+        return (x(int) - 1);
+    }
+}
+
+struct Point{
+    int x;
+    int y;
+};
+
+void g() {
+    int a;
+    bool b;
+    struct Point p;
+    (p(Point)).x(int) = a(int);
+    b(bool) = (a(int) == 3);
+    f(int, bool -> int)((a(int) + ((p(Point)).y(int) * 2)), b(bool));
+    g( -> void)();
+}
+
+void func4() {
+    struct Point pt;
+    (pt(Point)).x(int) = 7;
+}
+
+struct HungryLevel{
+    int a;
+};
+
+struct Lanran{
+    int b;
+    struct HungryLevel h1;
+};
+
+void func5() {
+    struct Lanran lanran1;
+    ((lanran1(Lanran)).h1(HungryLevel)).a(int) = 1;
+}
+

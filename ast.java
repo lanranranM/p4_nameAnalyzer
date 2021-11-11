@@ -310,6 +310,7 @@ class VarDeclNode extends DeclNode {
         if(myType.getType().equals("void")){
             String msg = "Non-function declared void";
             ErrMsg.fatal(myId.getLine(), myId.getChar(), msg);
+            return;
         }
         if(mySize==-1){
             try {
@@ -325,11 +326,11 @@ class VarDeclNode extends DeclNode {
         else{
             // check if defined & multiple declared 
             Sym struct = program.lookupStruct(myType.getType());
-            System.out.println("before");
-            program.print();
-            program.printStr();
+            //System.out.println("before");
+            //program.print();
+            //program.printStr();
             if(struct==null){
-                System.out.println(myType.getType());
+                //System.out.println(myType.getType());
                 String msg = "Invalid name of struct type";
                 ErrMsg.fatal(myId.getLine(), myId.getChar(), msg);
                 return;
@@ -343,9 +344,9 @@ class VarDeclNode extends DeclNode {
                     System.out.println(e);
                 }
             }
-            System.out.println("after");
-            program.print();
-            program.printStr();
+            //System.out.println("after");
+            //program.print();
+            //program.printStr();
         }
         // for tracing - del later
         //System.out.println("var.nameAnalyzer");
@@ -462,7 +463,7 @@ class StructDeclNode extends DeclNode {
     //melo
     public void nameAnalyzer(SymTable program){
         // create a new sym and add it to structDefinedList
-        System.out.println("defining a struct: "+myId.getID());
+        //System.out.println("defining a struct: "+myId.getID());
         Sym struct = new Sym(myId.getID(),true);
         SymTable structScope = struct.getStructTable();
         structScope.setStructDefinedList(program.getStructDefinedList());
@@ -1013,7 +1014,7 @@ class DotAccessExpNode extends ExpNode {
         // check if lhs is a declared struct
         // check if rhs is a valid field
         SymTable structTable = myLoc.nameAnalyzer(program);
-        if(structTable == null){
+        if(structTable == null && (myLoc instanceof IdNode)){
             String msg = "Dot-access of non-struct type";
             ErrMsg.fatal(((IdNode)myLoc).getLine(), ((IdNode)myLoc).getChar(), msg);
             return null;
@@ -1024,6 +1025,8 @@ class DotAccessExpNode extends ExpNode {
             ErrMsg.fatal(myId.getLine(), myId.getChar(), msg);
         }
         myId.setLink(link);
+        if(link!=null)
+            return link.getStructTable();
         return null;
     }
     //melo

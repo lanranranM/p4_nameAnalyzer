@@ -1,0 +1,14 @@
+struct HungryLevel{
+    int a;
+};
+
+struct Lanran{
+    int b;
+    struct HungryLevel h1;
+};
+
+void func5() {
+    struct Lanran lanran1;
+    ((lanran1(Lanran)).h1(HungryLevel)).a(int) = 1;
+}
+

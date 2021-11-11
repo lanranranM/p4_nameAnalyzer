@@ -60,7 +60,8 @@ EmptySymTableException.class: EmptySymTableException.java
 #	java -cp $(CP) P4 test.b test.out
 ###
 test:
-	java -cp $(CP) P4 myTest.b myTest.out 2> myTest.err
+	java -cp $(CP) P4 nameErrors.b nameErrors.out 2> nameErrors.err
+	java -cp $(CP) P4 test.b test.out
 
 ###
 # clean
